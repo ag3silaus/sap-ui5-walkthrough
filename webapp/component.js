@@ -2,8 +2,9 @@ sap.ui.define([
     'sap/ui/core/UIComponent',
     'sap/ui/model/json/JSONModel',
     'sap/ui/model/resource/ResourceModel',
-    './controller/HelloDialog'
-], function(UIComponent, JSONModel, ResourceModel, HelloDialog) {
+    './controller/HelloDialog',
+    'sap/ui/Device'
+], function(UIComponent, JSONModel, ResourceModel, HelloDialog, Device) {
     "use strict";
 
     return UIComponent.extend("sap.ui.demo.walkthrough.Component", {
@@ -17,20 +18,17 @@ sap.ui.define([
             // set the data Model on the view  
             var oData = {
                 recipient : {
-                    name: "Burragam"
+                    name: "UI5"
                 }
             };
             var oModel = new JSONModel(oData);
             this.setModel(oModel);
 
-             // alttaki kodu manifest.json a tasidik
+            //Set Device Model   
 
-            /* var i18nModel = new ResourceModel({
-                bundleName: "sap.ui.demo.walkthrough.i18n.i18n",
-                supportedLocales: [""],
-                fallbackLocale: ""
-            });
-            this.setModel(i18nModel, "i18n")*/
+            var oDeviceModel = new JSONModel(Device);
+            oDeviceModel.setDefaultBindingMode("OneWay");
+            this.setModel(oDeviceModel,"device");
 
             // SET DIALOG
             this._helloDialog = new HelloDialog(this.getRootControl());
