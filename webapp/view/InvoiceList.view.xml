@@ -14,7 +14,8 @@
                 sorter: {
                     path: 'ShipperName',
                     group: true
-                }}">
+                }}"
+                enabled="{/isThisSelected}">
             <headerToolbar>
             <Toolbar>
             <Title text="{i18n>invoiceListTitle}"></Title>
@@ -27,7 +28,8 @@
                 <Column hAlign="End"
                 minScreenWidth="Small"
                 demandPopin="true"
-                width="6em">
+                width="6em"
+                >
                     <Text text="{i18n>columnQuantity}"/>
                 </Column>
                 <Column>
@@ -69,7 +71,7 @@
                                     parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>currency'}],
                                     type: 'sap.ui.model.type.Currency',
                                     formatOptions: {
-                                    showMeasure: false
+                                        maxFractionDigits: 2
                                     }
                                 }"
                                 unit="{view>/currency}"

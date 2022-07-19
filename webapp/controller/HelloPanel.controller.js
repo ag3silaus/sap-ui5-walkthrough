@@ -13,6 +13,11 @@ sap.ui.define([
             .getModel()
             .getProperty("/recipient/name");
           var sMessage = oBundle.getText("helloMsg", [sRecipient]);
+
+          this.getView().getModel().setProperty("/isThisSelected", true);
+          //page invisible turn to visible
+          this.getView().getModel().setProperty("/isThisVisible", true)
+
           //Show a native vanillaJS alert
           MessageToast.show(sMessage);
         },

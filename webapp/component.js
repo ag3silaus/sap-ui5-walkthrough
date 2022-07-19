@@ -19,7 +19,9 @@ sap.ui.define([
             var oData = {
                 recipient : {
                     name: "UI5"
-                }
+                },
+                isThisSelected : false,
+                isThisVisible: false
             };
             var oModel = new JSONModel(oData);
             this.setModel(oModel);

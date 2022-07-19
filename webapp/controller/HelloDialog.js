@@ -19,6 +19,7 @@ sap.ui.define(
             var oFragmentController = {
               onCloseDialog: function () {
                 oView.byId("helloDialog").close();
+              
               },
             };
 
